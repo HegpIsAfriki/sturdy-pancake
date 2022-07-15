@@ -1,0 +1,51 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("LoL", "Ocean")
+
+--MAIN
+local Tab = Window:NewTab("YBA very op")
+local Section = Tab:NewSection("YBA very op")
+
+Section:NewKeybind("Toggle GUI With L", "Toggle GUI", Enum.KeyCode.L, function()
+    Library:ToggleUI()
+end)
+
+Section:NewToggle("YBA god mode", "Tobias are best", function(state)
+   if state then
+      local Func = game.Players.LocalPlayer.Character.RemoteFunction
+
+getgenv().toggle = true
+
+while getgenv().toggle do wait()
+Func:InvokeServer("Poison", {
+            Duration = 1, 
+            TotalDamage = -99999999
+        });
+end
+   else
+       local Func = game.Players.LocalPlayer.Character.RemoteFunction
+
+getgenv().toggle = false
+
+while getgenv().toggle do wait()
+Func:InvokeServer("Poison", {
+            Duration = 1, 
+            TotalDamage = -99999999
+        });
+end
+   end
+end)
+
+
+local Tab = Window:NewTab("YBA scripts")
+local Section = Tab:NewSection("YBA scripts")
+Section:NewButton("Kolgie", "Launches KolgieV6", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/kolgie/YBA-GUI/main/yba-gui-obfuscated.lua'))()
+end)
+Section:NewButton("YBA sucks ass", "Launches YBA sucks ass", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Tobias020108Back/YBA-AUT/main/YBA-GUI-Rewrite.lua'))()
+end)
+Section:NewButton("YBA misc", "Launches YBA misc", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Tobias020108Back/YBA-AUT/main/Yba/All/In/One/NonAutoExec'))()
+end)
+
+
